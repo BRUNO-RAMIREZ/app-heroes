@@ -27,4 +27,12 @@ export class HeroesService {
       `${this._baseUrl}/heroes?q=${termino}&_limit=6`
     );
   }
+
+  agregarHeroe(heroe: Heroe): Observable<Heroe> {
+    return this._http.post<Heroe>(`${this._baseUrl}/heroes`, heroe);
+  }
+
+  actualizarHeroe(heroe: Heroe): Observable<Heroe> {
+    return this._http.put<Heroe>(`${this._baseUrl}/heroes/${heroe.id}`, heroe);
+  }
 }
