@@ -1,0 +1,34 @@
+<div class="card mb-4 box-shadow">
+  <img
+    class="card-img-top"
+    alt="{{ heroe.superhero }}"
+    [src]="heroe | imagen"
+  />
+  <div class="card-body">
+    <h5 class="card-title text-center">{{ heroe.superhero }}</h5>
+    <p class="card-text col">
+      <strong>Alter ego:</strong> {{ heroe.alter_ego }}
+    </p>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-secondary"
+          [routerLink]="['/heroes', heroe.id]"
+        >
+          Ver más
+        </button>
+        <button
+          type="button"
+          class="btn btn-sm btn-outline-secondary"
+          [routerLink]="['/heroes/editar', heroe.id]"
+        >
+          Editar
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
