@@ -1,5 +1,7 @@
 <h1>
-  Nuevo Heroe <small>{{ heroe.superhero }}</small>
+  {{ heroe.id ? "Editar" : "Nuevo" }}
+  Heroe
+  <small>{{ heroe.superhero }}</small>
 </h1>
 
 <div class="row">
@@ -42,10 +44,22 @@
       <input type="url" matInput required [(ngModel)]="heroe.alt_img" />
     </mat-form-field>
     <br />
-    <button mat-raised-button (click)="guardar()" class="w-100" color="primary">
-      <mat-icon>edit</mat-icon>
-      Guardar
-    </button>
+    <div class="d-flex">
+      <button mat-raised-button (click)="guardar()" color="primary">
+        <mat-icon>edit</mat-icon>
+        {{ heroe.id ? "Actualizar" : "Crear" }}
+      </button>
+      <span class="spacer"></span>
+      <button
+        *ngIf="heroe.id"
+        mat-raised-button
+        (click)="borrar()"
+        color="warn"
+      >
+        <mat-icon>remove</mat-icon>
+        Borrar
+      </button>
+    </div>
   </div>
   <div class="col"><img [src]="heroe | imagen" alt="" /></div>
 </div>
